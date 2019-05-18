@@ -48,7 +48,7 @@ def result(query):
 	search_score = funct.search(query,proximityIndex["index"])
 	name = document["name"]
 	content = document["content"]
-	searchRes["number"] = search_score
+	searchRes["number"] = list(search_score.keys())
 	sscore = search_score
 	print(sscore)
 	search_score = list(search_score.keys())
@@ -101,9 +101,9 @@ def expand(query):
 	# 	relVec.append(funct.vector(rel[i], terms["all"]))
 	# for i in range(15):  # 20 irrelevant document
 	# 	irrelVec.append(funct.vector(irrel[i], terms["all"]))
-
+	print(searchRes["number"])
 	res = funct.relevance(searchRes["number"], document["content"])
-
+	
 	for words in res["rel"]:
 		relVec.append(funct.vector(words, terms["all"]))
 	# for words in res["irrel"]:
@@ -147,7 +147,8 @@ def pdfView(id_doc):
 # ABOUT PAGE
 @app.route("/about")
 def about():
-	return render_template('about.html')
+	
+	return render_template('about.html', output=preprocess["content"])
 
 
 

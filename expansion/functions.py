@@ -312,7 +312,8 @@ def preprocess(extracted): # list -> ['a b c', 'd e f']
 def relevance(listDoc, allContent):
     relevance = []
     irrelevance = []
-    
+    print("listDoc======>", listDoc)
+    print("allContent", allContent)
     for i in range(len(listDoc)):
         if (i < 5):
             relevance.append(allContent[int(listDoc[i])])
