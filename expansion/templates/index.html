@@ -1,0 +1,23 @@
+{% extends "layout.html"%}
+{% block content%}
+
+<div class="container" style="min-height: 80vh">
+
+	<form method="POST" action="" class="form-horizontal">
+		<fieldset>
+			<legend>Generate Index</legend>
+			<div class="form-group">
+				{{ form.hidden_tag() }}
+				<center>
+					{{ form.submit(class="btn btn-primary") }}
+				</center>
+			</div>
+		</fieldset>
+	</form>
+
+
+	<div class="well">
+		{{ res }}
+	</div>
+</div>
+{% endblock content%}

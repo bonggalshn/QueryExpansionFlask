@@ -1,0 +1,83 @@
+{% extends "layout.html"%}
+{% block content%}
+
+<form method="POST" action="">
+  {{ form.hidden_tag() }}
+  <div class="form-group">
+    <img height="100px" src="{{url_for('static',filename='img/prometheus.png')}}"
+      style="margin-bottom: -25px; margin-top: -25px">
+    <div class="input-group">
+      {{ form.query(class="form-control input-md", value=query) }}
+      <!-- <input type="text" value="{{ query }}" class="form-control input-md"> -->
+      <span class="input-group-btn">
+        {{ form.submit(class="btn btn-md btn-default") }}
+        <!-- <button class="btn btn-md btn-default" type="button">Search</button> -->
+      </span>
+    </div>
+    <div class="rows" style="padding-top: 10px">
+      <div class="col-md-9">
+        <p> Showing results for: <strong> {{query}} </strong></p>
+      </div>
+
+      <div class="col-md-3" style="text-align: right;">
+        {% if score|length > 0 %}
+        <a href="/expand/{{ query }}" class="btn btn-sm btn-primary">Expand Query</a>
+        {% else %}
+        <a href="/expand/{{ query }}" class="btn btn-sm btn-primary disabled">Expand Query</a>
+        {% endif %}
+      </div>
+
+    </div>
+
+  </div>
+</form>
+
+<div class="rows">
+  <div class="col-md-12">
+    <ul class="nav nav-tabs">
+      <li class=""><a href="#result" data-toggle="tab" aria-expanded="true">Result</a></li>
+      <li class=""><a href="#explanation" data-toggle="tab" aria-expanded="false">Searching Process</a></li>
+    </ul>
+
+    <div id="myTabContent" class="tab-content" style="padding-top: 10px">
+      <div class="tab-pane fade active in" id="result">
+        <center>
+          <h4>{{ message }}</h4>
+        </center>
+        <div class="list-group">
+
+          {% for sc in score: %}
+          <a href="/pdfView/{{ sc }}" class="list-group-item">
+            <h4 class="list-group-item-heading"><strong>
+                {{ name[sc|int] }}</strong>
+            </h4>
+            <p class="list-group-item-text"><strong>Rank score: {{ sscore[sc] }}</strong></p>
+            <p class="list-group-item-text">{{ content[sc|int][0:1500] }} ...</p>
+          </a>
+
+          {% endfor %}
+
+        </div>
+        <!-- <center>
+      <ul class="pagination">
+        <li><a href="#">&laquo;</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">&raquo;</a></li>
+      </ul>
+    </center> -->
+
+      </div>
+      <div class="tab-pane fade active in" id="explanation">
+        test
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock content%}

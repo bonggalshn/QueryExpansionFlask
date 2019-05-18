@@ -1,0 +1,28 @@
+{% extends "layout.html"%}
+{% block content%}
+
+<div class="jumbotron" style="min-height: 80vh">
+  <center>
+    <img src="{{url_for('static',filename='img/prometheus.png')}}" style="margin-bottom: -60px">
+    
+
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+        <div class="input-group">
+          <!-- <input type="text" class="form-control input-lg"> -->
+          {{ form.query(class="form-control input-lg", placeholder="Search here ...") }}
+          <span class="input-group-btn">
+            <!-- <button class="btn btn-lg btn-default" type="button">Search</button> -->
+            {{ form.submit(class="btn btn-lg btn-default") }}
+          </span>
+        </div>
+      </div>
+    </form>
+    <p class="lead">Best Research Papers Search Engine</p>
+  </center>
+</div>
+
+
+
+{% endblock content%}

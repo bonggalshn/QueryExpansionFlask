@@ -1,0 +1,17 @@
+{% extends "layout.html"%}
+{% block content%}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Doc. Number</th>
+        <th>Doc. Name</th>
+    </tr>
+    {% for i in output["number"] %}
+    <tr>
+        <td>{{ i }}</td>
+        <td>{{ output["name"][i|int] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock content%}
