@@ -20,9 +20,9 @@ Library used in this project include:
 - wtforms
 
 ### Screenshot
-1. Main Page
-![Main page]()
-2. Search Result
-![Search result]()
-3. Index Producing
-![Index producing]()
+1. Main Page<br>
+![Main page](https://raw.githubusercontent.com/Bonggal/QueryExpansionFlask/master/screenshot/Screenshot_2019-05-18%20Prometheus%20Search.png)
+2. Search Result<br>
+![Search result](https://raw.githubusercontent.com/Bonggal/QueryExpansionFlask/master/screenshot/Screenshot_2019-05-18%20Prometheus%20Search(1).png)
+3. Index Producing<br>
+![Index producing](https://raw.githubusercontent.com/Bonggal/QueryExpansionFlask/master/screenshot/Screenshot_2019-05-18%20Prometheus%20Search(2).png)
