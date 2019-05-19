@@ -6,7 +6,7 @@ Index is generated based on the documents.
 This project was built using flask and python 3.
 To run the project, first install flask and necessary library.
 <br>IMPORTANT
-<br>Rename the project name into "QueryExpansion"
+<br>Rename the project folder name into "QueryExpansion"
 <br><br>
 ### Library
 Library used in this project include:
