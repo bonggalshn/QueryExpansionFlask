@@ -311,19 +311,24 @@ def preprocess(extracted): # list -> ['a b c', 'd e f']
 
 def relevance(listDoc, allContent):
     relevance = []
-    irrelevance = []
-    print("listDoc======>", listDoc)
-    print("allContent", allContent)
-    for i in range(len(listDoc)):
+    # irrelevance = []
+    # print("listDoc======>", listDoc)
+    # print("allContent", allContent)
+    if len(listDoc) < 5:
+        maxLen = len(listDoc)
+    else:
+        maxLen = 5
+
+    for i in range(maxLen):
         if (i < 5):
             relevance.append(allContent[int(listDoc[i])])
-        else:
-            irrelevance.append(allContent[int(listDoc[i])])
+        # else:
+            # irrelevance.append(allContent[int(listDoc[i])])
 
-    relevances = preprocess(relevance)
-    irrelevances = preprocess(irrelevance)
+    # relevances = preprocess(relevance)
 
-    result = {"rel":relevances,"irrel":irrelevances}
+    # result = {"rel":relevances,"irrel":irrelevances}
+    result = {"rel": relevance}
 
     return result
 

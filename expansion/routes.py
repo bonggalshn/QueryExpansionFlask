@@ -9,6 +9,8 @@ import os
 
 # to convert string to dict
 import ast
+import warnings
+warnings.filterwarnings("ignore")
 
 indx = open("../QueryExpansion/Index.txt", 'r')
 indx = indx.read()
@@ -50,11 +52,11 @@ def result(query):
 	content = document["content"]
 	searchRes["number"] = list(search_score.keys())
 	sscore = search_score
-	print(sscore)
+	# print(sscore)
 	search_score = list(search_score.keys())
 
-	print(sscore)
-	print(search_score)
+	# print(sscore)
+	# print(search_score)
 
 	if(len(search_score)<1):
 		message = "No result found"
@@ -87,6 +89,7 @@ def index():
 
 	return render_template('index.html', form=form, res = res)
 
+
 # EXPAND PAGE
 @app.route("/expand/<string:query>")
 def expand(query):
@@ -94,20 +97,16 @@ def expand(query):
 	queryVec = funct.vector(query, terms["all"])
 
 	relVec = []
-	# irrelVec = []
 	total = []
 	totalDict = {}
-	# for i in range(len(rel)):
-	# 	relVec.append(funct.vector(rel[i], terms["all"]))
-	# for i in range(15):  # 20 irrelevant document
-	# 	irrelVec.append(funct.vector(irrel[i], terms["all"]))
-	print(searchRes["number"])
-	res = funct.relevance(searchRes["number"], document["content"])
+	
+	# res = funct.relevance(searchRes["number"], document["content"])
+	res = funct.relevance(searchRes["number"], preprocess["content"])
+
 	
 	for words in res["rel"]:
 		relVec.append(funct.vector(words, terms["all"]))
-	# for words in res["irrel"]:
-	# 	irrelVec.append(funct.vector(words, terms["all"]))
+		
 
 	relVecSum = funct.sumVector(relVec)
 
