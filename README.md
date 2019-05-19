@@ -18,3 +18,11 @@ Library used in this project include:
 - collection
 - operator
 - wtforms
+
+### Screenshot
+1. Main Page
+![Main page]()
+2. Search Result
+![Search result]()
+3. Index Producing
+![Index producing]()
