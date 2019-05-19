@@ -1,5 +1,7 @@
 # QueryExpansionFlask
-Search engine and query expansion using python, rocchio algorithm, and pseudo relevance feedback.
+Search engine and query expansion using python, rocchio algorithm, and pseudo relevance feedback.<br>
+The engine searches for research papers documents stored in pdf format in the collection folder.
+Index is generated based on the documents.
 
 This project was built using flask and python 3.
 To run the project, first install flask and necessary library.
